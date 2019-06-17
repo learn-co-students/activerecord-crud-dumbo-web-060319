@@ -1,7 +1,7 @@
 describe 'Movie' do
   let(:attributes) {{
       title: "The Sting",
-      release_date: 1973,
+      realease_date: 1973,
       director: "George Roy Hill",
       lead: "Paul Newman",
       in_theaters: false
@@ -18,9 +18,9 @@ describe 'Movie' do
       expect(movie.title).to eq("The Matrix")
     end
 
-    it 'has a release date' do
-      movie.release_date = 1999
-      expect(movie.release_date).to eq(1999)
+    it 'has a realease date' do
+      movie.realease_date = 1999
+      expect(movie.realease_date).to eq(1999)
     end
 
     it 'has a director' do
@@ -73,22 +73,22 @@ describe 'Movie' do
         movie = can_be_created_in_a_block
 
         expect(movie.title).to eq("Home Alone")
-        expect(movie.release_date).to eq(1990)
+        expect(movie.realease_date).to eq(1990)
       end
 
       it 'can be created in a block' do
-        args = { title: "The Room", release_date: 2003 }
+        args = { title: "The Room", realease_date: 2003 }
         movie = can_be_created_in_a_block(args)
 
         expect(movie.title).to eq("The Room")
-        expect(movie.release_date).to eq(2003)
+        expect(movie.realease_date).to eq(2003)
       end
    end
 
     context 'reading' do
       before do
         5.times do |i|
-          Movie.create(title: "Movie_#{i}", release_date: i+2000)
+          Movie.create(title: "Movie_#{i}", realease_date: i+2000)
         end
         Movie.last.update_attribute(:id, 999)
       end
@@ -113,7 +113,7 @@ describe 'Movie' do
       end
 
       it 'can retrieve from the database using different attributes' do
-        movie = Movie.create(title: "Title", release_date: 2000, director: "Me")
+        movie = Movie.create(title: "Title", realease_date: 2000, director: "Me")
         expect(can_find_by_multiple_attributes).to eq(movie)
       end
 
